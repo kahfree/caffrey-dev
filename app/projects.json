@@ -1,0 +1,37 @@
+{
+    "projects": [
+    {
+      "title": "Planning Poker",  
+      "description": "A lightweight point estimation tool for agile workflows. Supports multiple rooms, link sharing, and realtime user updates.",
+      "link": "https://github.com/bober-mateusz/Planning-Poker",
+      "tags": [
+        "React",
+        "WebSockets",
+        "Spring Boot"
+      ]
+    },
+     {
+      "title": "Liked Song Memories",
+      "description": "On-this-day memories for Spotify liked songs. Shows tracks you favorited on today's date across past years, with album art rendered in a terminal UI.",
+      "link": "https://github.com/kahfree/liked-song-memories",
+      "tags": [
+        "C",
+        "Spotify API",
+        "OAuth2.0",
+        "TUI"
+      ]
+    },
+    {
+      "title": "Pettopia",  
+      "description": "API for fictional vet business to manager customer and pet services, including invoice generation.",
+      "link": "https://github.com/kahfree/pettopia",
+      "tags": [
+        "Spring Boot",
+        "REST",
+        "Task Scheduling",
+        "Caching",
+        "3rd-party api integration"
+      ]
+    }
+]
+}
