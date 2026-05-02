@@ -21,7 +21,7 @@ export default function Card(props: ICardProps) {
           variants — so this card animates in sync with its siblings automatically.
         */}
         <motion.div
-            className="flex flex-col h-full rounded-3xl overflow-hidden lg:text-center bg-[#f5f0e8] border border-stone-300"
+            className="card-light"
             variants={{ hidden: { opacity: 0, y: 40 }, visible: { opacity: 1, y: 0 } }}
             transition={{ duration: 0.5, ease: "easeOut" }}
         >
@@ -32,17 +32,14 @@ export default function Card(props: ICardProps) {
                 <div className="border-t border-stone-200 my-4" />
                 <div>
                     {tags.map(tag => (
-                        <span
-                            key={tag}
-                            className="inline-block bg-amber-400/10 border border-amber-400/50 text-amber-700 rounded-full px-3 py-1 text-sm font-semibold mr-2 mb-2 hover:bg-amber-400/20 hover:border-amber-400 hover:shadow-[0_0_10px_rgba(245,158,11,0.45)] transition-all duration-200"
-                        >
+                        <span key={tag} className="tag-amber">
                             #{tag}
                         </span>
                     ))}
                 </div>
             </div>
             <div className="px-6 pb-5 pt-2 flex justify-center">
-                <a href={link} target="_blank" rel="noopener noreferrer" className="btn-shimmer flex items-center gap-2 px-4 py-2 rounded-full bg-stone-800 text-white text-sm font-semibold hover:bg-stone-700 transition-colors duration-200">
+                <a href={link} target="_blank" rel="noopener noreferrer" className="btn-shimmer btn-primary">
                     <DiGithubBadge className="text-xl" />
                     View on GitHub
                 </a>

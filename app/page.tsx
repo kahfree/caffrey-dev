@@ -26,7 +26,7 @@ export default function Home() {
         >
           <Image src="/transition-background.svg" alt="" width={2560} height={1024} className="w-full h-auto" />
 
-          <div id="my-work" style={{"backgroundColor": "#ebe2cf"}} className="w-full h-full text-center pb-6">
+          <div id="my-work" className="bg-section-tan w-full h-full text-center pb-6">
             <div className="sm:w-[85%] lg:w-[60%] mx-auto">
               {/*
                 This child inherits "hidden"/"visible" from the parent orchestrator.
@@ -46,7 +46,7 @@ export default function Home() {
                 variants={{ hidden: { opacity: 0, y: 16 }, visible: { opacity: 1, y: 0 } }}
                 transition={{ duration: 0.5, delay: 0.2, ease: "easeOut" }}
               >
-                <a href="https://github.com/kahfree" target="_blank" rel="noopener noreferrer" className="btn-shimmer inline-flex items-center gap-2 px-5 py-2 rounded-full border-2 border-stone-800 text-stone-800 text-sm font-semibold hover:bg-stone-800 hover:text-white transition duration-200">
+                <a href="https://github.com/kahfree" target="_blank" rel="noopener noreferrer" className="btn-shimmer btn-outline">
                   More on GitHub →
                 </a>
               </motion.div>
@@ -68,7 +68,7 @@ export default function Home() {
           >
             <div className="text-3xl font-semibold text-zinc-50 mb-4">Get in touch</div>
             <p className="text-zinc-300 mb-8 max-w-sm mx-auto leading-7">Open to opportunities and collaborations. Drop me a line.</p>
-            <a href="mailto:ethancaff@gmail.com" className="inline-block px-6 py-3 rounded-full bg-zinc-50 text-emerald-950 font-semibold hover:bg-zinc-200 transition duration-200">ethancaff@gmail.com</a>
+            <a href="mailto:ethancaff@gmail.com" className="btn-light">ethancaff@gmail.com</a>
           </motion.div>
         </div>
       </main>

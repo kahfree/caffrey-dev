@@ -132,7 +132,7 @@ export default function BacklogPage() {
               </svg>
             </div>
             <input ref={inputRef} type="text" value={query} onChange={e => setQuery(e.target.value)} placeholder="Search for a TV show..."
-              className="w-full bg-zinc-900/90 border border-zinc-700/50 rounded-2xl pl-11 pr-12 py-4 text-zinc-100 placeholder-zinc-600 focus:outline-none focus:border-emerald-500/50 focus:ring-2 focus:ring-emerald-500/10 transition-all backdrop-blur-sm" />
+              className="input-search" />
             {searching && <div className="absolute right-4 top-1/2 -translate-y-1/2"><div className="w-4 h-4 border-2 border-emerald-500/30 border-t-emerald-400 rounded-full animate-spin" /></div>}
           </div>
           <AnimatePresence>
@@ -180,7 +180,7 @@ export default function BacklogPage() {
                     animate={{ opacity: 1, scale: 1, ...(justCompleted === show.id && { scale: [1, 1.04, 1] }) }}
                     exit={{ opacity: 0, scale: 0.85, transition: { duration: 0.2 } }}
                     transition={{ type: "spring", damping: 22, stiffness: 300 }}
-                    className="group relative bg-zinc-900/80 border border-zinc-800/60 rounded-2xl overflow-hidden backdrop-blur-sm hover:border-zinc-700/60 transition-colors">
+                    className="group card-dark">
                     <div className="relative aspect-[2/3] bg-zinc-800 overflow-hidden">
                       {/* eslint-disable-next-line @next/next/no-img-element */}
                       {show.image ? <img src={show.image} alt={show.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" /> : <div className="w-full h-full flex items-center justify-center text-zinc-600"><span className="text-4xl">📺</span></div>}
