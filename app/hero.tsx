@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useMotionValue, useSpring, animate } from "motion/react";
-import { useEffect, useRef, useCallback } from "react";
+import { useEffect, useRef, useState, useCallback } from "react";
 import {
   ORB_FLEE_RADIUS,
   ORB_FLEE_MIN_DISTANCE,
@@ -36,8 +36,15 @@ function scrollToWork(e: React.MouseEvent) {
 export default function Hero() {
   const heroRef = useRef<HTMLDivElement>(null);
 
-  const rawX = useMotionValue(0);
-  const rawY = useMotionValue(0);
+  // Lazy initializer runs once on mount. Guarded for SSR (`next dev`/`next start` render
+  // this client component on the server first, even though prod uses static export).
+  // Seeding rawX/rawY at the random position means useSpring starts tracking from
+  // there, so dotX/dotY never animate from 0 (top-left).
+  const [initX] = useState(() => typeof window === "undefined" ? 0 : ORB_EDGE_PADDING + Math.random() * (window.innerWidth - ORB_EDGE_PADDING * 2));
+  const [initY] = useState(() => typeof window === "undefined" ? 0 : ORB_EDGE_PADDING + Math.random() * (window.innerHeight * ORB_HERO_HEIGHT_FALLBACK_FRACTION - ORB_EDGE_PADDING * 2));
+
+  const rawX = useMotionValue(initX);
+  const rawY = useMotionValue(initY);
 
   const dotX = useSpring(rawX, { stiffness: ORB_SPRING_STIFFNESS, damping: ORB_SPRING_DAMPING });
   const dotY = useSpring(rawY, { stiffness: ORB_SPRING_STIFFNESS, damping: ORB_SPRING_DAMPING });
@@ -134,6 +141,18 @@ export default function Hero() {
       >
         Fullstack engineer. Knows what useEffect does. Mostly.
       </motion.p>
+
+      <motion.a
+        href="/ethan-caffrey-resume.pdf"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="btn-shimmer inline-flex items-center gap-2 px-5 py-2 rounded-full border-2 border-zinc-50 text-zinc-50 text-sm font-semibold hover:bg-zinc-50 hover:text-emerald-950 transition duration-200"
+        initial={{ opacity: 0, y: SUBTITLE_ENTRANCE_OFFSET_Y }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: SUBTITLE_ENTRANCE_DURATION, delay: SUBTITLE_ENTRANCE_DELAY + 0.15, ease: "easeOut" }}
+      >
+        Resume ↓
+      </motion.a>
 
       <motion.div
         initial={{ opacity: 0 }}

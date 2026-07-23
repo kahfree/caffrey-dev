@@ -27,10 +27,10 @@ export default function ProjectsGrid() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-80px" }}
-            className="grid grid-cols-1 lg:grid-cols-2 2xl:grid-cols-3 gap-4 px-5 text-base font-medium justify-items-center pt-15 text-left"
+            className="grid grid-cols-1 lg:grid-cols-2 2xl:grid-cols-3 gap-4 text-base font-medium justify-items-center pt-15 text-left"
         >
-            {myJson.projects.map((project, index) => (
-                <div key={project.title} className="w-full lg:last:col-span-2 lg:last:justify-self-center lg:last:w-1/2 2xl:last:col-span-1 2xl:last:w-full">
+            {myJson.projects.map((project) => (
+                <div key={project.title} className="w-full 2xl:last:col-span-3 2xl:last:justify-self-center 2xl:last:w-1/3">
                     <Card title={project.title} description={project.description} link={project.link} tags={project.tags}/>
                 </div>
             ))}

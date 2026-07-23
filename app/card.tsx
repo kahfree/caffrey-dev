@@ -1,5 +1,6 @@
 "use client"
 import { motion } from "motion/react"
+import Link from "next/link"
 import { DiGithubBadge } from "react-icons/di";
 
 interface ICardProps {
@@ -11,6 +12,7 @@ interface ICardProps {
 
 export default function Card(props: ICardProps) {
     const { title, description, link, tags } = props
+    const isInternal = link.startsWith("/");
     return (
         <div className="h-full hover:-translate-y-1.5 hover:shadow-xl transition-[transform,box-shadow] duration-150 rounded-3xl" style={{ willChange: "transform" }}>
         {/*
@@ -26,23 +28,33 @@ export default function Card(props: ICardProps) {
             transition={{ duration: 0.5, ease: "easeOut" }}
         >
             <div className="h-1 bg-emerald-600 w-full" />
-            <div className="flex-grow px-6 pt-5 pb-2">
-                <div className="font-bold text-2xl mb-2 text-black">{title}</div>
-                <p className="text-stone-600 text-base leading-relaxed">{description}</p>
-                <div className="border-t border-stone-200 my-4" />
+            <div className="flex-grow flex flex-col px-6 pt-5 pb-4">
                 <div>
-                    {tags.map(tag => (
-                        <span key={tag} className="tag-amber">
-                            #{tag}
-                        </span>
-                    ))}
+                    <div className="flex items-start justify-between gap-3 mb-2">
+                        <div className="font-bold text-2xl text-black">{title}</div>
+                        {isInternal ? (
+                            <Link href={link} className="btn-shimmer btn-card">
+                                Open Project →
+                            </Link>
+                        ) : (
+                            <a href={link} target="_blank" rel="noopener noreferrer" className="btn-shimmer btn-card">
+                                <DiGithubBadge className="text-base" />
+                                GitHub
+                            </a>
+                        )}
+                    </div>
+                    <p className="text-stone-600 text-base leading-relaxed">{description}</p>
                 </div>
-            </div>
-            <div className="px-6 pb-5 pt-2 flex justify-center">
-                <a href={link} target="_blank" rel="noopener noreferrer" className="btn-shimmer btn-primary">
-                    <DiGithubBadge className="text-xl" />
-                    View on GitHub
-                </a>
+                <div className="mt-auto">
+                    <div className="border-t border-stone-200 my-4" />
+                    <div className="flex flex-wrap gap-1.5">
+                        {tags.map(tag => (
+                            <span key={tag} className="tag-amber">
+                                {tag}
+                            </span>
+                        ))}
+                    </div>
+                </div>
             </div>
         </motion.div>
         </div>
