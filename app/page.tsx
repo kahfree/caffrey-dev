@@ -90,8 +90,11 @@ export default function Home() {
               >
                 <div className="border-l-2 border-emerald-600/50 pl-6">
                   <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-x-3 gap-y-0.5">
-                    <span className="font-bold text-xl text-black">Canto</span>
-                    <span className="text-stone-500 text-sm">Software Engineer II · Feb 2025 – Present</span>
+                    <div className="flex items-baseline flex-wrap gap-x-2">
+                      <span className="font-bold text-xl text-black">Canto</span>
+                      <span className="font-semibold text-stone-700">Software Engineer II</span>
+                    </div>
+                    <span className="text-stone-400 text-sm whitespace-nowrap">Feb 2025 – Present</span>
                   </div>
                   <ul className="mt-3 list-disc list-outside pl-5 text-stone-600 leading-relaxed space-y-1.5">
                     <li>Co-developed asset collection, used daily by 75%+ of customers — ported from the legacy UI, full-stack delivery + system design</li>
@@ -102,8 +105,11 @@ export default function Home() {
 
                 <div className="border-l-2 border-emerald-600/50 pl-6">
                   <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-x-3 gap-y-0.5">
-                    <span className="font-bold text-xl text-black">Ericsson</span>
-                    <span className="text-stone-500 text-sm">Software Engineer · Jul 2023 – Jan 2025</span>
+                    <div className="flex items-baseline flex-wrap gap-x-2">
+                      <span className="font-bold text-xl text-black">Ericsson</span>
+                      <span className="font-semibold text-stone-700">Software Engineer</span>
+                    </div>
+                    <span className="text-stone-400 text-sm whitespace-nowrap">Jul 2023 – Jan 2025</span>
                   </div>
                   <ul className="mt-3 list-disc list-outside pl-5 text-stone-600 leading-relaxed space-y-1.5">
                     <li>Hardened container security across ~115 services (Docker/Kubernetes/Helm) for internal compliance</li>
