@@ -80,7 +80,7 @@ export default function Background() {
   return (
     <div
       className="fixed inset-0 -z-10 overflow-hidden"
-      style={{ perspective: "700px", background: "var(--ctp-base)" }}
+      style={{ perspective: "1000px", background: "var(--ctp-base)" }}
     >
       <canvas
         ref={canvasRef}
