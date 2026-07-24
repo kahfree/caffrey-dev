@@ -10,7 +10,7 @@ export default function OgImage() {
     (
       <div
         style={{
-          background: "#064e3b",
+          background: "#1e1e2e",
           width: "100%",
           height: "100%",
           display: "flex",
@@ -23,10 +23,10 @@ export default function OgImage() {
         <div style={{ color: "#f4f4f5", fontSize: 80, fontWeight: 600, lineHeight: 1.1 }}>
           Ethan Caffrey
         </div>
-        <div style={{ color: "#6ee7b7", fontSize: 36, marginTop: 24 }}>
+        <div style={{ color: "#89b4fa", fontSize: 36, marginTop: 24 }}>
           Fullstack Engineer
         </div>
-        <div style={{ color: "#71717a", fontSize: 24, marginTop: 16 }}>
+        <div style={{ color: "#6c7086", fontSize: 24, marginTop: 16 }}>
           caffrey.dev
         </div>
       </div>

@@ -1,168 +1,202 @@
-"use client";
-import Image from "next/image";
-import { motion } from "motion/react";
-import Hero from "./hero";
-import ProjectsGrid from "./projects-grid";
+import { Geist, Geist_Mono, Fraunces } from "next/font/google";
+import projects from "./projects.json";
+import Background from "./background";
+import GlassCard from "./glass-card";
+
+const geist = Geist({ subsets: ["latin"] });
+const doto = Geist_Mono({ subsets: ["latin"] });
+const fraunces = Fraunces({ subsets: ["latin"], weight: ["600"] });
+
+const emphasis = "text-[var(--ctp-green)]";
+const link = "text-[var(--ctp-blue)]";
 
 export default function Home() {
   return (
-    <div className="flex items-center justify-center font-sans animated-bg">
-      <main className="flex min-h-screen w-full flex-col items-center justify-between sm:items-start">
-        <Hero/>
-
-        {/*
-          This outer motion.div is a "variant orchestrator" — its own variants are
-          empty ({}) so it doesn't animate itself. Its only job is to own the
-          whileInView trigger. When it enters the viewport, FM sets the active
-          variant to "visible" and propagates that name to all descendant
-          motion elements that have matching variant keys.
-        */}
-        <motion.div
-          className="w-full"
-          variants={{ hidden: {}, visible: {} }}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-80px" }}
+    <div className={`${geist.className} min-h-screen`} style={{ color: "var(--ctp-text)" }}>
+      <Background />
+      <div className="max-w-3xl mx-auto px-6 py-24">
+        <h1
+          className={`${fraunces.className} text-5xl sm:text-6xl font-bold tracking-tight mb-3`}
+          style={{ color: "var(--ctp-text)" }}
         >
-          <Image src="/transition-background.svg" alt="" width={2560} height={1024} className="w-full h-auto" />
+          Full-stack engineer.
+        </h1>
+        <p
+          className={`${doto.className} text-sm tracking-widest uppercase mb-10`}
+          style={{ color: "var(--ctp-subtext0)" }}
+        >
+          Ethan Caffrey — Software Engineer II @ Canto
+        </p>
 
-          <div className="bg-section-tan w-full h-full text-center pb-6">
-            <div className="px-6 sm:px-0 sm:w-[85%] lg:w-[60%] mx-auto">
-              {/*
-                This child inherits "hidden"/"visible" from the parent orchestrator.
-                delay: 0.05 fires first, right as this section enters view.
-              */}
-              <motion.div
-                variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
-                transition={{ duration: 0.6, delay: 0.05, ease: "easeOut" }}
-                className="pt-6 pb-14 text-left"
-              >
-                <div className="text-5xl text-black font-semibold gradient-heading text-center">About</div>
-                <div className="mt-6 grid grid-cols-1 lg:grid-cols-[auto_1fr] gap-x-8 gap-y-4">
-                  <div className="flex flex-wrap content-start gap-2 text-sm lg:flex-col lg:items-start">
-                    <span className="pill-amber">
-                      🌍 Ireland
-                    </span>
-                    <span className="pill-amber">
-                      💼 SWE II @ Canto
-                    </span>
-                    <span className="pill-amber">
-                      🔧 SaaS w/ SDD
-                    </span>
-                    <a
-                      href="https://github.com/kahfree"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="pill-amber-link"
-                    >
-                      🔗 github
-                    </a>
-                    <a
-                      href="https://linkedin.com/in/ethan-caffrey-0b2976136"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="pill-amber-link"
-                    >
-                      🔗 linkedIn
-                    </a>
-                  </div>
-                  <p className="leading-8 text-stone-700 text-lg">
-                    Full-stack engineer at Canto, building customer-facing SaaS in React/TypeScript and Java/Spring Boot.
-                    Previously hardened cloud infrastructure security at Ericsson across 115+ services. I build my own
-                    tooling to move faster — spec-driven AI workflows, internal automation — and I ship things end to
-                    end, from system design to production.
-                  </p>
-                </div>
-              </motion.div>
-
-              <motion.div
-                variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
-                transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
-                className="text-5xl text-black font-semibold pt-6 gradient-heading"
-              >
-                Experience
-              </motion.div>
-
-              <motion.div
-                variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
-                transition={{ duration: 0.6, delay: 0.15, ease: "easeOut" }}
-                className="mt-10 grid grid-cols-1 lg:grid-cols-2 gap-4 text-left"
-              >
-                <div className="border-l-2 border-emerald-600/50 pl-6">
-                  <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-x-3 gap-y-0.5">
-                    <div className="flex items-baseline flex-wrap gap-x-2">
-                      <span className="font-bold text-xl text-black">Canto</span>
-                      <span className="font-semibold text-stone-700">Software Engineer II</span>
-                    </div>
-                    <span className="text-stone-400 text-sm whitespace-nowrap">Feb 2025 – Present</span>
-                  </div>
-                  <ul className="mt-3 list-disc list-outside pl-5 text-stone-600 leading-relaxed space-y-1.5">
-                    <li>Co-developed asset collection, used daily by 75%+ of customers — ported from the legacy UI, full-stack delivery + system design</li>
-                    <li>Led routing migration to TanStack Router, fixing a long-standing customer-facing scroll bug</li>
-                    <li>Cut CI/CD pipeline time ~25% by auditing and de-flaking the e2e suite</li>
-                  </ul>
-                </div>
-
-                <div className="border-l-2 border-emerald-600/50 pl-6">
-                  <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-x-3 gap-y-0.5">
-                    <div className="flex items-baseline flex-wrap gap-x-2">
-                      <span className="font-bold text-xl text-black">Ericsson</span>
-                      <span className="font-semibold text-stone-700">Software Engineer</span>
-                    </div>
-                    <span className="text-stone-400 text-sm whitespace-nowrap">Jul 2023 – Jan 2025</span>
-                  </div>
-                  <ul className="mt-3 list-disc list-outside pl-5 text-stone-600 leading-relaxed space-y-1.5">
-                    <li>Hardened container security across ~115 services (Docker/Kubernetes/Helm) for internal compliance</li>
-                    <li>Built full-stack internal tool visualizing Git repo metrics for cross-team codebase health</li>
-                    <li>Automated Helm chart generation, cutting test turnaround from ~2 days to ~3 hours</li>
-                  </ul>
-                </div>
-              </motion.div>
-
-              <motion.div
-                variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
-                transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
-                className="text-5xl text-black font-semibold pt-16"
-                id="my-work"
-              >
-                My Work
-              </motion.div>
-              <ProjectsGrid />
-              {/* delay: 0.2 — fades in slightly after the heading */}
-              <motion.div
-                className="mt-10 mb-4"
-                variants={{ hidden: { opacity: 0, y: 16 }, visible: { opacity: 1, y: 0 } }}
-                transition={{ duration: 0.5, delay: 0.2, ease: "easeOut" }}
-              >
-                <a href="https://github.com/kahfree" target="_blank" rel="noopener noreferrer" className="btn-shimmer btn-outline">
-                  More on GitHub →
-                </a>
-              </motion.div>
-            </div>
-          </div>
-        </motion.div>
-
-        <div className="w-full animated-bg text-center py-20 px-6">
-          {/*
-            This section uses inline initial/whileInView instead of variants —
-            no parent orchestration needed since it animates independently.
-            whileInView here acts as both the trigger and the target state.
-          */}
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
-          >
-            <div className="text-3xl font-semibold text-zinc-50 mb-4">Get in touch</div>
-            <p className="text-zinc-300 mb-8 max-w-sm mx-auto leading-7">Open to opportunities and collaborations. Drop me a line.</p>
-            <div className="flex flex-wrap items-center justify-center gap-3">
-              <a href="mailto:ethancaff@gmail.com" className="btn-light">ethancaff@gmail.com</a>
-              <a href="https://linkedin.com/in/ethan-caffrey-0b2976136" target="_blank" rel="noopener noreferrer" className="btn-light-outline">LinkedIn</a>
-            </div>
-          </motion.div>
+        <div className="space-y-5 leading-relaxed mb-12" style={{ color: "var(--ctp-subtext1)" }}>
+          <p>
+            Full-stack engineer spanning <span className={emphasis}>customer-facing SaaS</span> at Canto to{" "}
+            <span className={emphasis}>cloud infrastructure security</span> at Ericsson — React/TypeScript
+            frontends, Java/Spring Boot backends, Kubernetes/Helm hardening across 115+ services.
+          </p>
+          <p>
+            I build my own tooling to move faster: <span className={emphasis}>spec-driven AI workflows</span>,
+            internal process automation.
+          </p>
+          <p>
+            — <span className="italic">Get in touch</span>:{" "}
+            <a href="mailto:ethancaff@gmail.com" className={`${link} hover:underline`}>
+              ethancaff@gmail.com
+            </a>
+          </p>
         </div>
-      </main>
+
+        <div className={`${doto.className} text-sm space-y-2 mb-16`} style={{ color: "var(--ctp-subtext0)" }}>
+          <div className="flex items-center gap-3">
+            <span>🌍</span>
+            <span>BASED IN IRELAND</span>
+          </div>
+          <div className="flex items-center gap-3">
+            <span>💼</span>
+            <span>SOFTWARE ENGINEER II @ CANTO</span>
+          </div>
+          <div className="flex items-center gap-3">
+            <span>🔧</span>
+            <span>BUILDING: SAAS W/ SPEC-DRIVEN AI WORKFLOWS</span>
+          </div>
+          <div className="flex items-center gap-3">
+            <span>🔗</span>
+            <a href="https://github.com/kahfree" target="_blank" rel="noopener noreferrer" className={`${link} hover:underline`}>
+              GITHUB.COM/KAHFREE
+            </a>
+          </div>
+          <div className="flex items-center gap-3">
+            <span>🔗</span>
+            <a href="https://linkedin.com/in/ethan-caffrey-0b2976136" target="_blank" rel="noopener noreferrer" className={`${link} hover:underline`}>
+              LINKEDIN.COM/IN/ETHAN-CAFFREY
+            </a>
+          </div>
+          <div className="flex items-center gap-3">
+            <span>📄</span>
+            <a href="/ethan-caffrey-resume.pdf" target="_blank" rel="noopener noreferrer" className={`${link} hover:underline`}>
+              RESUME.PDF
+            </a>
+          </div>
+        </div>
+
+        <h2 className={`${fraunces.className} text-2xl font-bold tracking-tight mb-6`} style={{ color: "var(--ctp-text)" }}>
+          Experience
+        </h2>
+        <div className="flex flex-col gap-10 mb-16">
+          <div className="border-l-2 pl-6" style={{ borderColor: "rgba(203,166,247,0.4)" }}>
+            <div className="flex items-baseline gap-2 mb-1">
+              <span className="font-bold text-lg" style={{ color: "var(--ctp-text)" }}>Canto</span>
+              <span className="text-sm" style={{ color: "var(--ctp-subtext0)" }}>Software Engineer II</span>
+            </div>
+            <div className={`${doto.className} text-xs tracking-widest uppercase mb-3`} style={{ color: "var(--ctp-overlay0)" }}>
+              Feb 2025 – Present
+            </div>
+            <ul className="list-disc list-outside pl-5 text-sm space-y-1.5 leading-relaxed" style={{ color: "var(--ctp-subtext1)" }}>
+              <li>Co-developed asset collection, used daily by 75%+ of customers — ported from the legacy UI, full-stack delivery + system design</li>
+              <li>Led routing migration to TanStack Router, fixing a long-standing customer-facing scroll bug</li>
+              <li>Cut CI/CD pipeline time ~25% by auditing and de-flaking the e2e suite</li>
+            </ul>
+          </div>
+          <div className="border-l-2 pl-6" style={{ borderColor: "rgba(203,166,247,0.4)" }}>
+            <div className="flex items-baseline gap-2 mb-1">
+              <span className="font-bold text-lg" style={{ color: "var(--ctp-text)" }}>Ericsson</span>
+              <span className="text-sm" style={{ color: "var(--ctp-subtext0)" }}>Software Engineer</span>
+            </div>
+            <div className={`${doto.className} text-xs tracking-widest uppercase mb-3`} style={{ color: "var(--ctp-overlay0)" }}>
+              Jul 2023 – Jan 2025
+            </div>
+            <ul className="list-disc list-outside pl-5 text-sm space-y-1.5 leading-relaxed" style={{ color: "var(--ctp-subtext1)" }}>
+              <li>Hardened container security across ~115 services (Docker/Kubernetes/Helm) for internal compliance</li>
+              <li>Built full-stack internal tool visualizing Git repo metrics for cross-team codebase health</li>
+              <li>Automated Helm chart generation, cutting test turnaround from ~2 days to ~3 hours</li>
+            </ul>
+          </div>
+        </div>
+
+        <h2 className={`${fraunces.className} text-2xl font-bold tracking-tight mb-6`} style={{ color: "var(--ctp-text)" }}>
+          Projects
+        </h2>
+        <div className="flex flex-col gap-4 mb-16">
+          {projects.projects.map((p) => {
+            const label = p.link.startsWith("/") ? "Open Project →" : "View on GitHub →";
+            const linkProps = {
+              href: p.link,
+              target: p.link.startsWith("/") ? undefined : "_blank",
+              rel: p.link.startsWith("/") ? undefined : "noopener noreferrer",
+            };
+            return (
+              <GlassCard key={p.title} className="overflow-hidden">
+                <div className="h-[3px]" style={{ background: "var(--ctp-mauve)" }} />
+                <div className="p-6">
+                  <div className="flex flex-wrap items-start justify-between gap-4 mb-2">
+                    <div className="font-semibold text-lg" style={{ color: "var(--ctp-text)" }}>{p.title}</div>
+                    <a
+                      {...linkProps}
+                      className="whitespace-nowrap text-sm font-semibold hover:underline transition-colors"
+                      style={{ color: "var(--ctp-blue)" }}
+                    >
+                      {label}
+                    </a>
+                  </div>
+                  <p className="text-sm leading-relaxed mb-4" style={{ color: "var(--ctp-subtext0)" }}>{p.description}</p>
+                  <div className="flex flex-wrap gap-1.5">
+                    {p.tags.map((tag) => (
+                      <span
+                        key={tag}
+                        className={`${doto.className} text-xs rounded-full px-2.5 py-1 whitespace-nowrap`}
+                        style={{
+                          color: "var(--ctp-mauve)",
+                          border: "1px solid rgba(203,166,247,0.3)",
+                          background: "rgba(203,166,247,0.08)",
+                        }}
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </GlassCard>
+            );
+          })}
+        </div>
+
+        <div className="mb-4">
+          <a
+            href="https://github.com/kahfree"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 px-5 py-2 rounded-full border-2 text-sm font-semibold transition duration-200 hover:bg-[var(--ctp-text)] hover:text-[var(--ctp-base)]"
+            style={{ borderColor: "var(--ctp-text)", color: "var(--ctp-text)" }}
+          >
+            More on GitHub →
+          </a>
+        </div>
+      </div>
+
+      <div className="w-full text-center py-20 px-6" style={{ background: "var(--ctp-mantle)" }}>
+        <div className="text-3xl font-semibold mb-4" style={{ color: "var(--ctp-text)" }}>Get in touch</div>
+        <p className="mb-8 max-w-sm mx-auto leading-7" style={{ color: "var(--ctp-subtext1)" }}>
+          Open to opportunities and collaborations. Drop me a line.
+        </p>
+        <div className="flex flex-wrap items-center justify-center gap-3">
+          <a
+            href="mailto:ethancaff@gmail.com"
+            className="inline-block px-6 py-3 rounded-full font-semibold transition duration-200"
+            style={{ background: "var(--ctp-mauve)", color: "var(--ctp-base)" }}
+          >
+            ethancaff@gmail.com
+          </a>
+          <a
+            href="https://linkedin.com/in/ethan-caffrey-0b2976136"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block px-6 py-3 rounded-full border-2 font-semibold transition duration-200 hover:bg-[var(--ctp-blue)] hover:text-[var(--ctp-base)]"
+            style={{ borderColor: "var(--ctp-blue)", color: "var(--ctp-blue)" }}
+          >
+            LinkedIn
+          </a>
+        </div>
+      </div>
     </div>
   );
 }

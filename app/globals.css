@@ -10,9 +10,23 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+}
 
-  --color-surface-warm: #f5f0e8;
-  --color-section-tan: #ebe2cf;
+/* Catppuccin Mocha accents — https://catppuccin.com/palette (Mocha flavor).
+   Base/mantle are darkened past Mocha's actual values (#1e1e2e/#181825) by request.
+   Text grays use Tailwind zinc instead of Catppuccin's tinted subtext colors,
+   matching the shades used on the /redesign exploration page. */
+:root {
+  --ctp-base: #121019;
+  --ctp-mantle: #0c0a12;
+  --ctp-surface0: #313244;
+  --ctp-text: #ffffff;
+  --ctp-subtext1: #d4d4d8;
+  --ctp-subtext0: #a1a1aa;
+  --ctp-overlay0: #52525b;
+  --ctp-blue: #89b4fa;
+  --ctp-mauve: #cba6f7;
+  --ctp-green: #a6e3a1;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -32,182 +46,7 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-/* Typewriter effect 1 */
-/* 13.5s cycle, 150ms per character step
-   0% = 100% = "Welcome" → seamless loop
-   Phase 1 (0–29.63%):    hold "Welcome"
-   Phase 2 (29.63–37.41%): delete "Welcome"
-   Phase 3 (37.41–39.63%): pause empty
-   Phase 4 (39.63–46.30%): type "Fáilte"
-   Phase 5 (46.30–75.93%): hold "Fáilte"
-   Phase 6 (75.93–82.59%): delete "Fáilte"
-   Phase 7 (82.59–84.81%): pause empty
-   Phase 8 (84.81–92.59%): type "Welcome"
-   Phase 9 (92.59–100%):   hold "Welcome" → loops */
-@keyframes typing {
-  0%, 29.63%  { content: "Welcome"; }
-  30.74%      { content: "Welcom"; }
-  31.85%      { content: "Welco"; }
-  32.96%      { content: "Welc"; }
-  34.07%      { content: "Wel"; }
-  35.19%      { content: "We"; }
-  36.30%      { content: "W"; }
-  37.41%, 39.63% { content: ""; }
-  40.74%      { content: "F"; }
-  41.85%      { content: "Fá"; }
-  42.96%      { content: "Fái"; }
-  44.07%      { content: "Fáil"; }
-  45.19%      { content: "Fáilt"; }
-  46.30%, 75.93% { content: "Fáilte"; }
-  77.04%      { content: "Fáilt"; }
-  78.15%      { content: "Fáil"; }
-  79.26%      { content: "Fái"; }
-  80.37%      { content: "Fá"; }
-  81.48%      { content: "F"; }
-  82.59%, 84.81% { content: ""; }
-  85.93%      { content: "W"; }
-  87.04%      { content: "We"; }
-  88.15%      { content: "Wel"; }
-  89.26%      { content: "Welc"; }
-  90.37%      { content: "Welco"; }
-  91.48%      { content: "Welcom"; }
-  92.59%, 100% { content: "Welcome"; }
-}
-
-@keyframes blink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0; }
-}
-
-.typewriter {
-  --caret: currentcolor;
-}
-
-.typewriter::before {
-  content: "Welcome";
-  animation: typing 13.5s infinite;
-}
-
-.typewriter::after {
-  content: "";
-  border-right: 1px solid var(--caret);
-  animation: blink 0.5s linear infinite;
-}
-
-.typewriter.thick::after {
-  border-right: 1ch solid var(--caret);
-}
-
-.typewriter.nocaret::after {
-  border-right: 0;
-}
-
-
-@media (prefers-reduced-motion) {
-  .typewriter::after {
-    animation: none;
-  }
-  
-  @keyframes sequencePopup {
-    0%, 100% { content: "Welcome"; }
-    50% { content: "Fáilte"; }
-  }
-
-  .typewriter::before {
-    content: "Welcome";
-    animation: sequencePopup 12s linear infinite;
-  }
-}
-
-@keyframes heroGradient {
-  0%, 100% { transform: translateX(0%) translateY(0%); }
-  50% { transform: translateX(-25%) translateY(-15%); }
-}
-
-.animated-bg {
-  position: relative;
-  background: #064e3b;
-  overflow: hidden;
-  isolation: isolate;
-}
-
-.animated-bg::before {
-  content: '';
-  position: absolute;
-  inset: -100%;
-  background: radial-gradient(ellipse at 60% 40%, rgba(5, 150, 105, 0.45) 0%, transparent 60%);
-  animation: heroGradient 8s ease infinite;
-  z-index: -1;
-}
-
-.gradient-heading {
-  background: linear-gradient(90deg, #1c1917, #57534e, #1c1917);
-  background-size: 200% auto;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  animation: shimmer 4s linear infinite;
-  padding-bottom: 0.1em;
-}
-
-@keyframes shimmer {
-  0% { background-position: 0% center; }
-  100% { background-position: 200% center; }
-}
-
-.btn-shimmer {
-  position: relative;
-  overflow: hidden;
-}
-
-.btn-shimmer::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 60%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.25), transparent);
-  transform: skewX(-20deg);
-  pointer-events: none;
-}
-
-.btn-shimmer:hover::before {
-  animation: shine 0.45s ease forwards;
-}
-
-@keyframes shine {
-  to { left: 150%; }
-}
-
 @layer components {
-  .btn-primary {
-    @apply flex items-center gap-2 px-4 py-2 rounded-full bg-stone-800 text-white text-sm font-semibold hover:bg-stone-700 transition-colors duration-200;
-  }
-  .btn-outline {
-    @apply inline-flex items-center gap-2 px-5 py-2 rounded-full border-2 border-stone-800 text-stone-800 text-sm font-semibold hover:bg-stone-800 hover:text-white transition duration-200;
-  }
-  .btn-light {
-    @apply inline-block px-6 py-3 rounded-full bg-zinc-50 text-emerald-950 font-semibold hover:bg-zinc-200 transition duration-200;
-  }
-  .btn-light-outline {
-    @apply inline-block px-6 py-3 rounded-full border-2 border-zinc-50 text-zinc-50 font-semibold hover:bg-zinc-50 hover:text-emerald-950 transition duration-200;
-  }
-  .btn-card {
-    @apply flex-shrink-0 flex items-center gap-2 px-3 py-1.5 rounded-full bg-stone-800 text-white text-xs font-semibold hover:bg-stone-700 transition-colors duration-200;
-  }
-  .tag-amber {
-    @apply inline-block bg-amber-400/10 border border-amber-400/50 text-amber-700 rounded-full px-2 py-0.5 text-xs font-semibold hover:bg-amber-400/20 hover:border-amber-400 hover:shadow-[0_0_10px_rgba(245,158,11,0.45)] transition-all duration-200;
-  }
-  .pill-amber {
-    @apply bg-amber-400/10 border border-amber-400/50 text-amber-700 rounded-full px-3 py-1 font-semibold;
-  }
-  .pill-amber-link {
-    @apply bg-amber-400/10 border border-amber-400/50 text-amber-700 rounded-full px-3 py-1 font-semibold hover:bg-amber-400/20 hover:border-amber-400 hover:shadow-[0_0_10px_rgba(245,158,11,0.45)] transition-all duration-200;
-  }
-  .card-light {
-    @apply flex flex-col h-full rounded-3xl overflow-hidden text-left bg-surface-warm border border-stone-300;
-  }
   .card-dark {
     @apply relative bg-zinc-900/80 border border-zinc-800/60 rounded-2xl overflow-hidden backdrop-blur-sm hover:border-zinc-700/60 transition-colors;
   }
