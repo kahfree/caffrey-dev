@@ -38,17 +38,11 @@ export default function Home() {
             I build my own tooling to move faster: <span className={emphasis}>spec-driven AI workflows</span>,
             internal process automation.
           </p>
-          <p>
-            — <span className="italic">Get in touch</span>:{" "}
-            <a href="mailto:ethancaff@gmail.com" className={`${link} hover:underline`}>
-              ethancaff@gmail.com
-            </a>
-          </p>
         </div>
 
         <div className={`${doto.className} text-sm space-y-2 mb-16`} style={{ color: "var(--ctp-subtext0)" }}>
           <div className="flex items-center gap-3">
-            <span>🌍</span>
+            <span>🇮🇪</span>
             <span>BASED IN IRELAND</span>
           </div>
           <div className="flex items-center gap-3">
@@ -69,6 +63,12 @@ export default function Home() {
             <span>🔗</span>
             <a href="https://linkedin.com/in/ethan-caffrey-0b2976136" target="_blank" rel="noopener noreferrer" className={`${link} hover:underline`}>
               LINKEDIN.COM/IN/ETHAN-CAFFREY
+            </a>
+          </div>
+          <div className="flex items-center gap-3">
+            <span>✉️</span>
+            <a href="mailto:ethancaff@gmail.com" target="_blank" rel="noopener noreferrer" className={`${link} hover:underline`}>
+              ethancaff@gmail.com
             </a>
           </div>
           <div className="flex items-center gap-3">
@@ -145,9 +145,10 @@ export default function Home() {
                         key={tag}
                         className={`${doto.className} text-xs rounded-full px-2.5 py-1 whitespace-nowrap`}
                         style={{
-                          color: "var(--ctp-mauve)",
-                          border: "1px solid rgba(203,166,247,0.3)",
+                          color: "var(--ctp-green)",
+                          border: "1px solid rgba(166,227,161,0.3)",
                           background: "rgba(203,166,247,0.08)",
+                          boxShadow: "0 0 1px 0px var(--ctp-green)",
                         }}
                       >
                         {tag}
@@ -165,35 +166,10 @@ export default function Home() {
             href="https://github.com/kahfree"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-5 py-2 rounded-full border-2 text-sm font-semibold transition duration-200 hover:bg-[var(--ctp-text)] hover:text-[var(--ctp-base)]"
+            className="inline-flex items-center gap-2 px-5 py-2 rounded-full border-2 text-sm font-semibold transition duration-200 hover:bg-[--ctp-text] hover:text-[--ctp-base]"
             style={{ borderColor: "var(--ctp-text)", color: "var(--ctp-text)" }}
           >
             More on GitHub →
-          </a>
-        </div>
-      </div>
-
-      <div className="w-full text-center py-20 px-6" style={{ background: "var(--ctp-mantle)" }}>
-        <div className="text-3xl font-semibold mb-4" style={{ color: "var(--ctp-text)" }}>Get in touch</div>
-        <p className="mb-8 max-w-sm mx-auto leading-7" style={{ color: "var(--ctp-subtext1)" }}>
-          Open to opportunities and collaborations. Drop me a line.
-        </p>
-        <div className="flex flex-wrap items-center justify-center gap-3">
-          <a
-            href="mailto:ethancaff@gmail.com"
-            className="inline-block px-6 py-3 rounded-full font-semibold transition duration-200"
-            style={{ background: "var(--ctp-mauve)", color: "var(--ctp-base)" }}
-          >
-            ethancaff@gmail.com
-          </a>
-          <a
-            href="https://linkedin.com/in/ethan-caffrey-0b2976136"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-block px-6 py-3 rounded-full border-2 font-semibold transition duration-200 hover:bg-[var(--ctp-blue)] hover:text-[var(--ctp-base)]"
-            style={{ borderColor: "var(--ctp-blue)", color: "var(--ctp-blue)" }}
-          >
-            LinkedIn
           </a>
         </div>
       </div>

@@ -2,7 +2,7 @@ node_modules
 .next
 out
 .superpowers
-
+.claude
 # Playwright
 test-results
 playwright-report
