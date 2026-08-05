@@ -11,6 +11,7 @@
     "test:visual:update": "playwright test --update-snapshots"
   },
   "dependencies": {
+    "98.css": "^0.1.21",
     "next": "16.0.7",
     "react": "19.2.1",
     "react-dom": "19.2.0",
