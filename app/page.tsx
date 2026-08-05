@@ -3,11 +3,17 @@
 import { useEffect, useState } from "react";
 import DefaultHome from "./default-home";
 import RetroHome from "./retro-home";
+import Background from "./background";
 
 type Theme = "default" | "retro";
 type Phase = "off" | "on" | null;
 
 const STORAGE_KEY = "theme";
+
+const THEME_BG: Record<Theme, string> = {
+  default: "var(--ctp-base)",
+  retro: "#ece9d8",
+};
 
 export default function Home() {
   const [theme, setTheme] = useState<Theme>("default");
@@ -51,16 +57,25 @@ export default function Home() {
 
   return (
     <div className="relative">
+      {phase && (
+        <div style={{ position: "fixed", inset: 0, zIndex: 0, background: THEME_BG[theme] }}>
+          {theme === "default" && <Background />}
+        </div>
+      )}
       <div
         className={wrapperClass}
         onAnimationEnd={handleAnimationEnd}
         style={
           phase
-            ? { position: "fixed", inset: 0, overflow: "hidden", zIndex: 0 }
+            ? { position: "fixed", inset: 0, overflow: "hidden", zIndex: 1 }
             : undefined
         }
       >
-        {displayedTheme === "default" ? <DefaultHome /> : <RetroHome />}
+        {displayedTheme === "default" ? (
+          <DefaultHome showBackground={phase !== "on"} />
+        ) : (
+          <RetroHome />
+        )}
       </div>
 
       <button

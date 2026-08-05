@@ -10,10 +10,10 @@ const fraunces = Fraunces({ subsets: ["latin"], weight: ["600"] });
 const emphasis = "text-[var(--ctp-green)]";
 const link = "text-[var(--ctp-blue)]";
 
-export default function DefaultHome() {
+export default function DefaultHome({ showBackground = true }: { showBackground?: boolean }) {
   return (
     <div className={`${geist.className} min-h-screen`} style={{ color: "var(--ctp-text)" }}>
-      <Background />
+      {showBackground && <Background />}
       <div className="max-w-3xl mx-auto px-6 py-24">
         <h1
           className={`${fraunces.className} text-5xl sm:text-6xl font-bold tracking-tight mb-3`}
