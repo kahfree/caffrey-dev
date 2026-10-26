@@ -36,12 +36,13 @@ export default function Win95Full() {
             <fieldset style={{ marginBottom: 16 }}>
               <legend>About</legend>
               <p style={{ marginBottom: 8, lineHeight: 1.5 }}>
-                Full-stack engineer spanning customer-facing SaaS at Canto to cloud infrastructure security at
-                Ericsson — React/TypeScript frontends, Java/Spring Boot backends, Kubernetes/Helm hardening
-                across 115+ services.
+                Full-stack engineer with 3+ years of experience, focused on backend and platform work. At Canto I
+                build Node.js/TypeScript gRPC services on AWS and work on the React frontend. At Ericsson I
+                hardened Kubernetes/Helm deployments across ~115 services.
               </p>
               <p style={{ marginBottom: 12, lineHeight: 1.5 }}>
-                I build my own tooling to move faster: spec-driven AI workflows, internal process automation.
+                I care most about API and data design, reliability, and spec-driven development with AI coding
+                tools.
               </p>
               <ul className="tree-view" style={{ listStyle: "none", margin: 0 }}>
                 <li>🇮🇪 Based in Ireland</li>
@@ -57,7 +58,7 @@ export default function Win95Full() {
                   ✉️ <a href="mailto:ethancaff@gmail.com">ethancaff@gmail.com</a>
                 </li>
                 <li>
-                  📄 <a href="/ethan-caffrey-resume.pdf" target="_blank" rel="noopener noreferrer">resume.pdf</a>
+                  📄 <a href="/ethan-caffrey-resume.docx" target="_blank" rel="noopener noreferrer">resume.docx</a>
                 </li>
               </ul>
             </fieldset>
@@ -71,9 +72,10 @@ export default function Win95Full() {
                   <p className="status-bar-field">Feb 2025 – Present</p>
                 </div>
                 <ul style={{ marginLeft: 18, lineHeight: 1.5 }}>
-                  <li>Co-developed asset collection, used daily by 75%+ of customers — ported from the legacy UI, full-stack delivery + system design</li>
-                  <li>Led routing migration to TanStack Router, fixing a long-standing customer-facing scroll bug</li>
-                  <li>Cut CI/CD pipeline time ~25% by auditing and de-flaking the e2e suite</li>
+                  <li>Built core parts of a service that scores assets and products for the new Canto Asset Library (Node.js/TypeScript, gRPC, PostgreSQL, Kafka), then added filtering by score across 7 repos</li>
+                  <li>Launched a new gRPC tenant service in 5 regions, with Terraform infrastructure and blue/green ECS deploys</li>
+                  <li>Co-developed asset collection, which 75%+ of customers use daily, and led the move to TanStack Router</li>
+                  <li>Cut CI/CD time ~25% by auditing the e2e suite and removing flaky Cypress tests</li>
                 </ul>
               </fieldset>
 
@@ -84,7 +86,7 @@ export default function Win95Full() {
                 </div>
                 <ul style={{ marginLeft: 18, lineHeight: 1.5 }}>
                   <li>Hardened container security across ~115 services (Docker/Kubernetes/Helm) for internal compliance</li>
-                  <li>Built full-stack internal tool visualizing Git repo metrics for cross-team codebase health</li>
+                  <li>Built a full-stack internal tool that shows Git repository metrics, so teams could track codebase health</li>
                   <li>Automated Helm chart generation, cutting test turnaround from ~2 days to ~3 hours</li>
                 </ul>
               </fieldset>

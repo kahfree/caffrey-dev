@@ -49,12 +49,13 @@ export default function RetroHome() {
 
         <Panel title="About">
           <p style={{ lineHeight: 1.6, marginBottom: 10, fontSize: 13 }}>
-            Full-stack engineer spanning customer-facing SaaS at Canto to cloud infrastructure security at
-            Ericsson — React/TypeScript frontends, Java/Spring Boot backends, Kubernetes/Helm hardening across
-            115+ services.
+            Full-stack engineer with 3+ years of experience, focused on backend and platform work. At Canto I
+            build Node.js/TypeScript gRPC services on AWS and work on the React frontend. At Ericsson I hardened
+            Kubernetes/Helm deployments across ~115 services.
           </p>
           <p style={{ lineHeight: 1.6, marginBottom: 14, fontSize: 13 }}>
-            I build my own tooling to move faster: spec-driven AI workflows, internal process automation.
+            I care most about API and data design, reliability, and spec-driven development with AI coding
+            tools.
           </p>
           <div style={{ ...bevelIn, padding: "8px 12px", fontSize: 12, lineHeight: 1.9 }}>
             <div>🇮🇪 Based in Ireland</div>
@@ -70,7 +71,7 @@ export default function RetroHome() {
               ✉️ <a href="mailto:ethancaff@gmail.com" style={{ color: LINK }}>ethancaff@gmail.com</a>
             </div>
             <div>
-              📄 <a href="/ethan-caffrey-resume.pdf" target="_blank" rel="noopener noreferrer" style={{ color: LINK }}>resume.pdf</a>
+              📄 <a href="/ethan-caffrey-resume.docx" target="_blank" rel="noopener noreferrer" style={{ color: LINK }}>resume.docx</a>
             </div>
           </div>
         </Panel>
@@ -83,9 +84,10 @@ export default function RetroHome() {
             </div>
             <div style={{ fontSize: 11, color: SUBTEXT, marginBottom: 6, letterSpacing: 0.5 }}>Feb 2025 – Present</div>
             <ul style={{ fontSize: 12, lineHeight: 1.7, paddingLeft: 18 }}>
-              <li>Co-developed asset collection, used daily by 75%+ of customers — ported from the legacy UI, full-stack delivery + system design</li>
-              <li>Led routing migration to TanStack Router, fixing a long-standing customer-facing scroll bug</li>
-              <li>Cut CI/CD pipeline time ~25% by auditing and de-flaking the e2e suite</li>
+              <li>Built core parts of a service that scores assets and products for the new Canto Asset Library (Node.js/TypeScript, gRPC, PostgreSQL, Kafka), then added filtering by score across 7 repos</li>
+              <li>Launched a new gRPC tenant service in 5 regions, with Terraform infrastructure and blue/green ECS deploys</li>
+              <li>Co-developed asset collection, which 75%+ of customers use daily, and led the move to TanStack Router</li>
+              <li>Cut CI/CD time ~25% by auditing the e2e suite and removing flaky Cypress tests</li>
             </ul>
           </div>
           <div>
@@ -96,7 +98,7 @@ export default function RetroHome() {
             <div style={{ fontSize: 11, color: SUBTEXT, marginBottom: 6, letterSpacing: 0.5 }}>Jul 2023 – Jan 2025</div>
             <ul style={{ fontSize: 12, lineHeight: 1.7, paddingLeft: 18 }}>
               <li>Hardened container security across ~115 services (Docker/Kubernetes/Helm) for internal compliance</li>
-              <li>Built full-stack internal tool visualizing Git repo metrics for cross-team codebase health</li>
+              <li>Built a full-stack internal tool that shows Git repository metrics, so teams could track codebase health</li>
               <li>Automated Helm chart generation, cutting test turnaround from ~2 days to ~3 hours</li>
             </ul>
           </div>

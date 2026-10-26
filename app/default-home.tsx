@@ -30,13 +30,14 @@ export default function DefaultHome({ showBackground = true }: { showBackground?
 
         <div className="space-y-5 leading-relaxed mb-12" style={{ color: "var(--ctp-subtext1)" }}>
           <p>
-            Full-stack engineer spanning <span className={emphasis}>customer-facing SaaS</span> at Canto to{" "}
-            <span className={emphasis}>cloud infrastructure security</span> at Ericsson — React/TypeScript
-            frontends, Java/Spring Boot backends, Kubernetes/Helm hardening across 115+ services.
+            Full-stack engineer with 3+ years of experience, focused on{" "}
+            <span className={emphasis}>backend and platform work</span>. At Canto I build Node.js/TypeScript gRPC
+            services on AWS and work on the React frontend. At Ericsson I hardened Kubernetes/Helm deployments
+            across ~115 services.
           </p>
           <p>
-            I build my own tooling to move faster: <span className={emphasis}>spec-driven AI workflows</span>,
-            internal process automation.
+            I care most about API and data design, reliability, and{" "}
+            <span className={emphasis}>spec-driven development</span> with AI coding tools.
           </p>
         </div>
 
@@ -73,8 +74,8 @@ export default function DefaultHome({ showBackground = true }: { showBackground?
           </div>
           <div className="flex items-center gap-3">
             <span>📄</span>
-            <a href="/ethan-caffrey-resume.pdf" target="_blank" rel="noopener noreferrer" className={`${link} hover:underline`}>
-              RESUME.PDF
+            <a href="/ethan-caffrey-resume.docx" target="_blank" rel="noopener noreferrer" className={`${link} hover:underline`}>
+              RESUME.DOCX
             </a>
           </div>
         </div>
@@ -92,9 +93,10 @@ export default function DefaultHome({ showBackground = true }: { showBackground?
               Feb 2025 – Present
             </div>
             <ul className="list-disc list-outside pl-5 text-sm space-y-1.5 leading-relaxed" style={{ color: "var(--ctp-subtext1)" }}>
-              <li>Co-developed asset collection, used daily by 75%+ of customers — ported from the legacy UI, full-stack delivery + system design</li>
-              <li>Led routing migration to TanStack Router, fixing a long-standing customer-facing scroll bug</li>
-              <li>Cut CI/CD pipeline time ~25% by auditing and de-flaking the e2e suite</li>
+              <li>Built core parts of a service that scores assets and products for the new Canto Asset Library (Node.js/TypeScript, gRPC, PostgreSQL, Kafka), then added filtering by score across 7 repos</li>
+              <li>Launched a new gRPC tenant service in 5 regions, with Terraform infrastructure and blue/green ECS deploys</li>
+              <li>Co-developed asset collection, which 75%+ of customers use daily, and led the move to TanStack Router</li>
+              <li>Cut CI/CD time ~25% by auditing the e2e suite and removing flaky Cypress tests</li>
             </ul>
           </div>
           <div className="border-l-2 pl-6" style={{ borderColor: "rgba(203,166,247,0.4)" }}>
@@ -107,7 +109,7 @@ export default function DefaultHome({ showBackground = true }: { showBackground?
             </div>
             <ul className="list-disc list-outside pl-5 text-sm space-y-1.5 leading-relaxed" style={{ color: "var(--ctp-subtext1)" }}>
               <li>Hardened container security across ~115 services (Docker/Kubernetes/Helm) for internal compliance</li>
-              <li>Built full-stack internal tool visualizing Git repo metrics for cross-team codebase health</li>
+              <li>Built a full-stack internal tool that shows Git repository metrics, so teams could track codebase health</li>
               <li>Automated Helm chart generation, cutting test turnaround from ~2 days to ~3 hours</li>
             </ul>
           </div>
