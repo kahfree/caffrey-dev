@@ -16,8 +16,8 @@ const THEME_BG: Record<Theme, string> = {
 };
 
 export default function Home() {
-  const [theme, setTheme] = useState<Theme>("default");
-  const [displayedTheme, setDisplayedTheme] = useState<Theme>("default");
+  const [theme, setTheme] = useState<Theme>("retro");
+  const [displayedTheme, setDisplayedTheme] = useState<Theme>("retro");
   const [phase, setPhase] = useState<Phase>(null);
 
   useEffect(() => {
